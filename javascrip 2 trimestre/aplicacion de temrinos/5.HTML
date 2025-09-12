@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- un sistema sobre sobre el registro de las dos clases:
+     1. nombre profesor
+     2. preguntas a que clase pretenece si a lña primera o segunda
+     3. luego ingresar el segundo profesor de la segunda clase y los mismo -->
+
+    <script>
+        // let registroprofesor = []
+        let estudiantesclase2 = []
+        let nombreProfesor = ""
+        let ingreseNombreEstudiante = "";
+        let estudiantes = [];
+        let repetirCiclo = true
+        let seleccionseleccion = "";
+        let clase = [
+            "clase 1",
+            "Clase 2"
+        ]
+
+        let mensaje = "Ingrese a que clase pertenece:\n "
+        for (let i = 0; i < clase.length; i++) {
+            mensaje += (i + 1) + " . " + clase[i] + "\n"
+        }
+        let seleccion = parseInt(prompt(mensaje))
+        seleccionseleccion = clase[seleccion - 1]
+
+        if (seleccion == 1) {
+            nombreProfesor = prompt("Ingrese el nombre completo señor(a) Profesor(a): " + clase[0]);
+            while (repetirCiclo) {
+
+                ingreseNombreEstudiante = prompt("Porfavor Ingrese el nombre del estudiante: ")
+                estudiantes.push(ingreseNombreEstudiante)
+
+                let continuar = prompt("Alguien mas ingreso: (si / no)")
+                if (continuar.toLowerCase() == "no") {
+                    nombreProfesorclase2 = prompt("Ingrese el nombre completo señor(a) Profesor(a): " + clase[1]);
+
+                    while (repetirCiclo) {
+
+                        ingreseNombreEstudianteclase2 = prompt("Porfavor Ingrese el nombre del estudiante: ")
+                        estudiantesclase2.push(ingreseNombreEstudianteclase2)
+
+                        let continuar = prompt("Alguien mas ingreso: (si / no)")
+                        if (continuar.toLowerCase() == "no") {
+                            repetirCiclo = false
+                        }
+                    }
+                }
+            }
+
+        }
+        document.write("📓Registro de las dos clases: " + "<br>")
+        document.write("🪑Registro de la primera clase: " + "<br>")
+        document.write("👱🏻Nombre completo del profesor(a): " + nombreProfesor + "<br>");
+        document.write("🏛️clase a la que pertenece: " + clase[0] + "<br>")
+        document.write("👯Listado de los estudiantes ingresados:<br>");
+
+        for (let i = 0; i < estudiantes.length; i++) {
+            document.write("👱🏻" + (i + 1) + " . " + estudiantes[i] + "<br>")
+        }
+        document.write("------------------------------------------------------<br>")
+        document.write("------------------------------------------------------<br>")
+
+        document.write("🪑Registro de la segunda clase: " + "<br>")
+        document.write("👱🏻Nombre completo del profesor(a): " + nombreProfesorclase2 + "<br>");
+        document.write("🏛️clase a la que pertenece: " + clase[1] + "<br>")
+        document.write("👯Listado de los estudiantes ingresados:<br>");
+
+
+        for (let i = 0; i < estudiantesclase2.length; i++) {
+            document.write("👱🏻" + (i + 1) + " . " + estudiantesclase2[i] + "<br>")
+        }
+        document.write("------------------------------------------------------<br>")
+        document.write("------------------------------------------------------<br>")
+    </script>
+
+</body>
+
+</html>

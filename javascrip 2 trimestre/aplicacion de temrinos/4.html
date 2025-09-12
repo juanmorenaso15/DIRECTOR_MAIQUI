@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- un sistema donde seencuentren 10 estudiantes y preguntas si ingreso o no ingreso al aula -->
+
+    <script>
+        // let listaDeEstudiantes = [
+        //     "María García",
+        //     "Carlos Rodríguez",
+        //     "Ana Martínez",
+        //     "Juan López",
+        //     "Sofía Pérez",
+        //     "Diego Sánchez",
+        //     "Laura Fernández",
+        //     "Jorge González",
+        //     "Lucía Díaz",
+        //     "Pedro Ramírez"
+        // ];
+
+        // let NombreProfesor = prompt("Ingrese su nombre completo profesor(a): ");
+        // let mensaje1 = "Esta es la lista completa de los estudiantes registrados: \n"
+        // for(i=0; i<listaDeEstudiantes.length; i++){
+        //     mensaje1 += (i+1) + " . "+ listaDeEstudiantes[i]+"\n";
+        // }
+        // alert(mensaje1)
+
+
+        let listaDeEstudiantes = [
+    "María García",
+    "Carlos Rodríguez",
+    "Ana Martínez",
+    "Juan López",
+    "Sofía Pérez",
+    "Diego Sánchez",
+    "Laura Fernández",
+    "Jorge González",
+    "Lucía Díaz",
+    "Pedro Ramírez"
+];
+
+let asistencia = []; // Aquí guardaremos true/false para cada estudiante
+
+let NombreProfesor = prompt("Ingrese su nombre completo profesor(a): ");
+
+// Preguntar por cada estudiante si entró o no
+for (let i = 0; i < listaDeEstudiantes.length; i++) {
+    let respuesta = prompt("¿"+listaDeEstudiantes[i]+"entró hoy? (Sí/No)" ).toLowerCase();
+    asistencia.push(respuesta === "sí" || respuesta === "si"); // Guarda true o false
+}
+
+// Mostrar el registro completo
+let mensaje = "Registro de asistencia:\n\n";
+for (let i = 0; i < listaDeEstudiantes.length; i++) {
+    let estado = asistencia[i] ? "✅ Entró" : "❌ No entró";
+    mensaje += +i + 1+"." +listaDeEstudiantes[i]+ "-" +estado+"\n";
+}
+
+alert(mensaje);
+
+    </script>
+
+</body>
+
+</html>

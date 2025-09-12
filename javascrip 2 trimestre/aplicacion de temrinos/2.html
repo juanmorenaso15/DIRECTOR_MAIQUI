@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Crear un sistema biblioticario donde el administradors pueda acceder a todos los libros que tiene y luego mostrar los libros que tiene prestado con la informacion de cada uno -->
+    <script>
+        let contador = 1;
+        let libro = [
+            "Cien años de soledad – Gabriel García Márquez ",
+            "1984 – George Orwell ",
+            "Orgullo y prejuicio – Jane Austen",
+            "El nombre del vient – Patrick Rothfus",
+            "La sombra del viento – Carlos Ruiz Zafón",
+            "Sapiens: De animales a dioses – Yuval Noah Harari",
+            "El arte de la guerra – Sun Tzu",
+            "Dune – Frank Herbert",
+            "El señor de los anillos – J.R.R. Tolkien",
+            "El hombre en busca de sentido – Viktor Frankl"
+        ]
+
+        let nombreAdministrador = prompt("🧑🏻‍🦲 Ingrese el nombre completo Señor(a) administrador: ")
+        let totalDelibros = "📓 Estos son todos los libros registrados:\n\n ";
+        for (let i = 0; i < libro.length; i++) {
+            totalDelibros += (i + 1) + " . " + libro[i] + "\n"
+
+
+        }
+        alert(totalDelibros)
+        let deseasPrestar = prompt("Deseas Adquirir algun libro❔: ")
+        let registro = []
+        if (deseasPrestar == "si") {
+            let prestar = true;
+
+            while (prestar) {
+
+
+                let mensajetotalDeLibrosSeleccion = parseInt(prompt(totalDelibros))
+                let libroSeleccion = libro[mensajetotalDeLibrosSeleccion - 1];
+                let libroPrestado = " ";
+                if (libroSeleccion == "Cien años de soledad – Gabriel García Márquez ",
+                    "1984 – George Orwell ",
+                    "Orgullo y prejuicio – Jane Austen",
+                    "El nombre del vient – Patrick Rothfus",
+                    "La sombra del viento – Carlos Ruiz Zafón",
+                    "Sapiens: De animales a dioses – Yuval Noah Harari",
+                    "El arte de la guerra – Sun Tzu",
+                    "Dune – Frank Herbert",
+                    "El señor de los anillos – J.R.R. Tolkien",
+                    "El hombre en busca de sentido – Viktor Frankl") {
+
+                    let nombreCliente = prompt("Ingrese el nombre completo Señor(a) cliente: ")
+                    let telefonoCliente = prompt("Ingrese el numero de telefono Señor(a) cliente: ")
+                    let numeroDeIdentificacionCliente = prompt("Ingrese el numero de documento Señor(a) cliente: ")
+                    let infoCliente = prompt("El libro que desea adquirir es: " + libroSeleccion + "\n" +
+                        "Estas de acuerdo con la seleccion: ")
+
+                    if (infoCliente == "si") {
+                        alert("Señor usuario su libro ha sido prestado con exito")
+                    } else {
+                        break
+                    }
+                    document.write("📓 Registro de un prestamos de libro: " + contador + "<br>");
+                    document.write("🧑🏻‍🦲Nombre del Administrador: " + nombreAdministrador + "<br>");
+                    document.write("📚Libro de Seleccion: " + libroSeleccion + "<br>");
+                    document.write("🧑🏻‍🦲Nombre del cliente: " + nombreCliente + "<br>");
+                    document.write("📱Numero de Telefono: " + telefonoCliente + "<br>");
+                    document.write("🪪Numero de identificacion: " + numeroDeIdentificacionCliente + "<br>");
+                    document.write("-----------------------------------------------------------------<br>",
+                        "------------------------------------------------------------------<br>")
+                    contador++
+                }
+                let repetirPrestamo = prompt("Desea otro libro: ")
+                if (repetirPrestamo == "no") {
+                    prestar = false
+                    document.write(registro)
+                }
+            }
+
+        } else {
+            alert("no hay prestamos")
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Veterinaria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .registro {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .separador {
+            border-top: 2px dashed #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏥 Sistema de Registros Veterinaria 🐾</h1>
+
+    <script>
+        let nombreCliente = prompt("🧑🏻 Ingrese el nombre completo Señor(a) cliente: ")
+        let cantidadDeMascotas = Number(prompt("Ingrese el total de mascotas que tiene: "))
+
+        let servicioTipoDeMascota = [
+            "Baño",
+            "Peluquería",
+            "Desparasitación"
+        ]
+
+        let servicioBañoPerro = [
+            "Baño básico(shampoo neutro + secado)– $25,000",
+            "Baño premium(shampoo hipoalergénico + hidratación)– $40,000",
+            "Baño antipulgas(shampoo medicinal + loción repelente)– $35,000",
+            "Baño spa(exfoliación + aromaterapia)– $50,000",
+            "Baño + cepillado dental– $45,000"
+        ]
+
+        let servicioPeluqueriaPerro = [
+            "Corte básico(rasurado estándar)– $30,000",
+            "Corte de raza(estilo según estándar de la raza)– $60,000",
+            "Corte higiénico(zona ojos, patas y cola)– $25,000",
+            "Corte creativo(diseños y tintes)– $80,000",
+            "Arreglo de barba y bigote– $20,000"
+        ]
+
+        let servicioDesparasitacionPerro = [
+            "Desparasitación oral básica(pastilla antiparasitaria)– $15,000",
+            "Desparasitación inyectable(para parásitos internos)– $25,000",
+            "Desparasitación externa(pipeta antipulgas)– $30,000",
+            "Desparasitación completa(oral + pipeta)– $40,000",
+            "Chequeo + desparasitación(con diagnóstico veterinario)– $50,000"
+        ]
+
+        let servicioBañoGato = [
+            "Baño básico(shampoo para gatos + secado suave)– $30,000",
+            "Baño premium(shampoo hidratante + masaje)– $45,000",
+            "Baño antipulgas(shampoo especial + peine fino)– $40,000",
+            "Baño spa(relajante con esencias naturales)– $55,000",
+            "Baño + corte de uñas– $35,000"
+        ]
+
+        let servicioPeluqueriaGato = [
+            "Corte de pelo corto(mantenimiento básico)– $35,000",
+            "Corte de pelo largo(desenredado + estilo)– $50,000",
+            "Corte higiénico(limpieza de zonas sensibles)– $30,000",
+            "Rasurado completo(para gatos con nudos)– $45,000",
+            "Peinado especial(cepillado profundo)– $25,000"
+        ]
+
+        let servicioDesparasitacionGato = [
+            "Desparasitación oral(pastilla para gatos)– $20,000",
+            "Desparasitación inyectable(dosis ajustada)– $30,000",
+            "Antipulgas en spray(aplicación segura)– $25,000",
+            "Kit completo(oral + spray)– $45,000",
+            "Control de garrapatas(tratamiento especial)– $35,000"
+        ]
+
+        let ingresar = true;
+        let contadorRegistros = 1;
+        
+        while (ingresar) {
+            let muestraTipoDeMascota = "Estas son las mascotas que puedes elegir: \n"
+            let tipoDeMascota = ["Perro", "Gato"]
+            for (let i = 0; i < tipoDeMascota.length; i++) {
+                muestraTipoDeMascota += (i + 1) + ". " + tipoDeMascota[i] + "\n"
+            }
+            let mensajeTotalTipoMascotaSeleccion = parseInt(prompt(muestraTipoDeMascota))
+            let mascotaEleccion = tipoDeMascota[mensajeTotalTipoMascotaSeleccion - 1];
+
+            let nombreMacota = prompt("Ingrese el nombre de su mascota: ")
+            let edadMascota = prompt("Ingrese la edad de su mascota: ")
+            let servicioRecomendado = "";
+            let subServicioRecomendado = ""
+
+            // Para PERROS
+            if (mascotaEleccion == "Perro") {
+                let mensajeServicioPerros = "Seleccione el servicio que desea para la mascota: " + mascotaEleccion + "\n";
+                for (let k = 0; k < servicioTipoDeMascota.length; k++) {
+                    mensajeServicioPerros += (k + 1) + ". " + servicioTipoDeMascota[k] + "\n";
+                }
+                let seleccionServicio = parseInt(prompt(mensajeServicioPerros));
+                servicioRecomendado = servicioTipoDeMascota[seleccionServicio - 1]
+
+                if (servicioRecomendado == "Baño") {
+                    let mensajeServicioBaño = "Selecciona que servicio desea: " + servicioRecomendado + "\n";
+                    for (let h = 0; h < servicioBañoPerro.length; h++) {
+                        mensajeServicioBaño += (h + 1) + ". " + servicioBañoPerro[h] + "\n";
+                    }
+                    let seleccionServicioBaño = parseInt(prompt(mensajeServicioBaño));
+                    subServicioRecomendado = servicioBañoPerro[seleccionServicioBaño - 1]
+                } else if (servicioRecomendado == "Peluquería") {
+                    let mensajeServicioPeluqueria = "Seleccione el servicio que desea: " + servicioRecomendado + "\n";
+                    for (let g = 0; g < servicioPeluqueriaPerro.length; g++) {
+                        mensajeServicioPeluqueria += (g + 1) + ". " + servicioPeluqueriaPerro[g] + "\n";
+                    }
+                    let seleccionServicioPeluqueria = parseInt(prompt(mensajeServicioPeluqueria));
+                    subServicioRecomendado = servicioPeluqueriaPerro[seleccionServicioPeluqueria - 1];
+                } else if (servicioRecomendado == "Desparasitación") {
+                    let mensajeservicioDesparasitacionPerro = "Seleccione el servicio que desea: " + servicioRecomendado + "\n";
+                    for (let f = 0; f < servicioDesparasitacionPerro.length; f++) {
+                        mensajeservicioDesparasitacionPerro += (f + 1) + ". " + servicioDesparasitacionPerro[f] + "\n";
+                    }
+                    let seleccionservicioDesparasitacionPerro = parseInt(prompt(mensajeservicioDesparasitacionPerro));
+                    subServicioRecomendado = servicioDesparasitacionPerro[seleccionservicioDesparasitacionPerro - 1];
+                }
+            } 
+            // Para GATOS
+            else if (mascotaEleccion == "Gato") {
+                let mensajeServicioGato = "Seleccione el servicio que desea para la mascota: " + mascotaEleccion + "\n";
+                for (let k = 0; k < servicioTipoDeMascota.length; k++) {
+                    mensajeServicioGato += (k + 1) + ". " + servicioTipoDeMascota[k] + "\n";
+                }
+                let seleccionServicio = parseInt(prompt(mensajeServicioGato));
+                servicioRecomendado = servicioTipoDeMascota[seleccionServicio - 1]
+
+                if (servicioRecomendado == "Baño") {
+                    let mensajeservicioBañoGato = "Selecciona que servicio desea: " + servicioRecomendado + "\n";
+                    for (let h = 0; h < servicioBañoGato.length; h++) {
+                        mensajeservicioBañoGato += (h + 1) + ". " + servicioBañoGato[h] + "\n";
+                    }
+                    let seleccionServicioBaño = parseInt(prompt(mensajeservicioBañoGato));
+                    subServicioRecomendado = servicioBañoGato[seleccionServicioBaño - 1]
+                } else if (servicioRecomendado == "Peluquería") {
+                    let mensajeservicioPeluqueriaGato = "Seleccione el servicio que desea: " + servicioRecomendado + "\n";
+                    for (let g = 0; g < servicioPeluqueriaGato.length; g++) {
+                        mensajeservicioPeluqueriaGato += (g + 1) + ". " + servicioPeluqueriaGato[g] + "\n";
+                    }
+                    let seleccionServicioPeluqueria = parseInt(prompt(mensajeservicioPeluqueriaGato));
+                    subServicioRecomendado = servicioPeluqueriaGato[seleccionServicioPeluqueria - 1];
+                } else if (servicioRecomendado == "Desparasitación") {
+                    let mensajeservicioDesparasitacionGato = "Seleccione el servicio que desea: " + servicioRecomendado + "\n";
+                    for (let f = 0; f < servicioDesparasitacionGato.length; f++) {
+                        mensajeservicioDesparasitacionGato += (f + 1) + ". " + servicioDesparasitacionGato[f] + "\n";
+                    }
+                    let seleccionservicioDesparasitacionGato = parseInt(prompt(mensajeservicioDesparasitacionGato));
+                    subServicioRecomendado = servicioDesparasitacionGato[seleccionservicioDesparasitacionGato - 1];
+                }
+            }
+
+            // MOSTRAR EL REGISTRO EN LA PANTALLA
+            document.write('<div class="registro">');
+            document.write('<h1>🗒 Registro #' + contadorRegistros + '</h1>');
+            document.write('<p><strong>🧑 Nombre del dueño:</strong> ' + nombreCliente + '</p>');
+            document.write('<p><strong>🐶🐱 Cantidad de mascotas:</strong> ' + cantidadDeMascotas + '</p>');
+            document.write('<p><strong>🐶🐱 Tipo de mascota:</strong> ' + mascotaEleccion + '</p>');
+            document.write('<p><strong>🐶🐱 Nombre de la mascota:</strong> ' + nombreMacota + '</p>');
+            document.write('<p><strong>🐶🐱 Edad de la mascota:</strong> ' + edadMascota + ' años</p>');
+            document.write('<p><strong>🚿 Tipo de servicio:</strong> ' + servicioRecomendado + '</p>');
+            document.write('<p><strong>💈 Servicio seleccionado:</strong> ' + subServicioRecomendado + '</p>');
+            document.write('</div>');
+            
+            contadorRegistros++;
+
+            let repetirIngresar = prompt("¿Desea registrar otro servicio? (escriba 'no' para terminar): ")
+            if (repetirIngresar.toLowerCase() == "no") {
+                ingresar = false;
+            }
+        }
+
+        // Mensaje final
+        document.write('<div class="separador"></div>');
+        document.write('<h2 style="text-align: center; color: #4CAF50;">✅ Registro completado exitosamente</h2>');
+        document.write('<p style="text-align: center;">Total de servicios registrados: ' + (contadorRegistros - 1) + '</p>');
+    </script>
+
+</body>
+
+</html>

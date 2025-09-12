@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- un sistema donde pregunte: 
+     1. nombre del profesor
+     2. entro alguein si / no 
+     3. si: quien entro
+     4. si: nombre del estudiante
+     5. no: se debe de mostrar todos los que registro e ingresaron. -->
+    <script>
+        let listado = [];
+        let sino="";
+        let estudiantes = [];
+        let repetirCiclo = true
+        let IngresoAlguien = ["si", "no"];
+        let ingreseNombreEstudiante = "";
+        let nombreProfesor = prompt("Ingrese su nombre completo señor(a) Profesor(a): ");
+        let mensaje = "Ingrese si alguien ingreso\n"
+        for (let i = 0; i < IngresoAlguien.length; i++) {
+            mensaje += (i + 1) + " . " + IngresoAlguien[i] + "\n";
+        }
+        let seleccion = parseInt(prompt(mensaje));
+        sino = IngresoAlguien[seleccion - 1]
+        while (repetirCiclo) {
+
+            if (seleccion == 1) {
+                ingreseNombreEstudiante = prompt("Porfavor Ingrese el nombre del estudiante: ")
+                estudiantes.push(ingreseNombreEstudiante)
+
+            } else {
+                break
+            }
+            let continuar = prompt("Alguien mas ingreso: (si / no)")
+            if (continuar.toLocaleLowerCase() == "no") {
+                repetirCiclo = false
+            }
+        }
+
+
+        document.write("Registro de listados de estudiantes: <br>")
+       document.write("Nombre del profesor(a): " + nombreProfesor + "<br>")
+        document.write("Listado de los estudiantes ingresados:<br>");
+
+        for (let i = 0; i < estudiantes.length; i++) {
+            document.write((i + 1) + " . " + estudiantes[i] + "<br>")
+        }
+        //alert(listado)
+    </script>
+<br>
+
+</body>
+
+</html>

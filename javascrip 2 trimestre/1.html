@@ -1,0 +1,500 @@
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
+
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <script>
+            // function SumaNumero(a, b)//parametro
+            //  {
+            //     return a + b;
+            // }
+            // console.log(SumaNumero(2, 2))
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+            // function parMoreno(numero){
+
+            // if (numero % 2=== 0) {
+            //     return numero + " par";
+
+            // }else{
+            //     return numero + " impar"
+            // }
+
+            // }
+            // console.log(parMoreno(2));
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            // function parMoreno(numero){
+            //     return numero % 2 ==0 ? "es par" : "Es impar";
+            // }
+            // console.log(parMoreno(4))
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            // function contarVocales(palabra) {
+            //     return palabra.toLowerCase().split('').filter(letra => ['a', 'e', 'i', 'o', 'u'].includes(letra)).length;
+            // }
+
+            // console.log(contarVocales("ordenador")); // 4
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            // const pregunta = Number(prompt(
+            //     "Que tipo de operacion desea utilizar: \n 1- suma \n 2- resta \n 3- multiplicacion \n 4-Division"))
+            // let total = 0
+            // const a = Number(prompt("Ingrese el primero numero: "));
+            // const b = Number(prompt("Ingrese el segundo numero: "));
+
+            // switch (pregunta) {
+            //     case 1:
+            //         total = a + b
+            //         alert(total)
+            //         break;
+            //     case 2:
+            //         total = a - b
+            //         alert(total)
+            //         break;
+            //     case 3:
+            //         total = a * b
+            //         alert(total)
+            //         break;
+            //     case 4:
+            //         total = a / b
+            //         alert(total)
+            //         break;
+            //     default:
+            //         alert("No esta la opcion")
+            //         break;
+            // }
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            // const pregunta = Number(prompt(
+            //     "Que tipo de operacion desea utilizar: \n 1- Kilómetros a millas \n 2- Gramos a libras \n 3- Centímetros a pulgadas \n 4-Celsius a Fahrenheit"
+            //     ))
+            // let total = 0
+            // const a = Number(prompt("Ingrese el valor: "));
+
+            // function kilometrosAMillas(a) {
+            //     return a * 0.621371;
+            // }
+
+            // function gramosALibras(a) {
+            //     return a * 0.00220462;
+            // }
+
+            // function centimetrosAPulgadas(a) {
+            //     return a * 0.393701;
+            // }
+
+            // function celsiusAFahrenheit(a) {
+            //     return (a * 1.8) + 32
+            // }
+
+            // switch (pregunta) {
+            //     case 1:
+            //         alert(kilometrosAMillas(a) + " millas");
+            //         break;
+            //     case 2:
+            //         alert(gramosALibras(a) + " lb");
+            //         break;
+            //     case 3:
+            //         alert(centimetrosAPulgadas(a) + " in");
+            //         break;
+            //     case 4:
+            //         alert(celsiusAFahrenheit(a) + " °F");
+            //         break;
+            //     default:
+            //         break;
+            // }
+            //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+            /* let UsuarioNuevo = [
+
+             ]
+
+             let nombreUsuarioNuevo = " ";
+             let contrsañeUsuarionuevo = " ";
+
+             function registro() {
+
+                 nombreUsuarioNuevo = prompt("Por favor ingrese su nombre completo: ")
+                 contrsañeUsuarionuevo = prompt("Por favor ingrese su contraseña: ")
+                 UsuarioNuevo.push({
+                     nombre: nombreUsuarioNuevo,
+                     contraseña: contrsañeUsuarionuevo
+                 })
+                 // return `${UsuarioNuevo[0].nombre} y contraseña: ${UsuarioNuevo[0].contraseña}` 
+                 return "Nombre completo: " + nombreUsuarioNuevo + "\n\n"+"Contraseña: " + contrsañeUsuarionuevo
+
+             }
+             let buscarNombre = "";
+             let buscarContraseña = "";
+             let inicio = true
+
+             function iniciarSesion() {
+                 buscarNombre = prompt("Ingrese el nombre completo: ");
+                 buscarContraseña = prompt("Ingrese su contraseña: ");
+
+                 for (let i = 0; i < UsuarioNuevo.length; i++) {
+                     if (buscarNombre === UsuarioNuevo[i].nombre && buscarContraseña === UsuarioNuevo[i].contraseña) {
+                         inicio = true;
+                         alert("Si esta registrado \nBienvenido!!");
+                         return;
+                     }
+                 }
+                 inicio = false;
+                 alert("Usuario no encontrado");
+             }
+
+
+             let productos = [
+
+                 {
+                     nombre: "Limpiador facial suave",
+                     precio: 4000
+                 },
+                 {
+                     nombre: "Crema hidratante",
+                     precio: 1000
+                 },
+                 {
+                     nombre: "protector solar",
+                     precio: 5000
+                 }
+
+             ];
+             let vercarrito = []
+             let listaCarrito = ""
+             let volver = true
+             while (volver) {
+
+                 const pregunta = Number(prompt(
+                     "Seleccione una opcion: \n 1. Registrar Usuario. \n 2. Iniciar sesion. \n 3. Salir"
+                 ))
+
+
+
+                 switch (pregunta) {
+                     case 1:
+                         alert(registro())
+                         break;
+
+                     case 2:
+                         iniciarSesion()
+                         if (inicio == true) {
+                             let carrito = [];
+                             let total = 0;
+                             let volvero = true
+                             while (volvero) {
+                                 const preguntaa = Number(prompt(
+                                     "Seleccione una opcion: \n Usuario: " + nombreUsuarioNuevo +
+                                     " \n 2. Ver productos\n 3. Realizar comprar \n 4. Ver carrito \n 5. Salir"
+                                 ))
+                                 let ingresar = true;
+
+
+                                 let productoEleccion = "";
+
+
+                                 switch (preguntaa) {
+                                     case 2:
+                                         function verProd() {
+                                             let muestraProductosDisponibles =
+                                                 "Estimado cliente estos son los productos que puede comprar\n";
+                                             for (let i = 0; i < productos.length; i++) {
+                                                 muestraProductosDisponibles += (i + 1) + " . " + productos[i].nombre +
+                                                     " - " +
+                                                     productos[i].precio +
+                                                     "\n"
+                                             }
+                                             return muestraProductosDisponibles
+                                         }
+                                         alert(verProd());
+                                         break;
+                                        /// volvero = true
+
+                                     case 3:
+
+                                     
+                                     while (ingresar) {
+                                         function verProd() {
+                                             let muestraProductosDisponibles =
+                                                 "Estimado cliente estos son los productos que puede comprar\n";
+                                             for (let i = 0; i < productos.length; i++) {
+                                                 muestraProductosDisponibles += (i + 1) + " . " + productos[i]
+                                                     .nombre +
+                                                     " - " +
+                                                     productos[i].precio +
+                                                     "\n"
+                                             }
+                                             let seleccion = parseInt(prompt(muestraProductosDisponibles));
+                                             seleccion = seleccion - 1
+                                             total += productos[seleccion].precio;
+                                             return productoEleccion = productos[seleccion].nombre + " - " +
+                                                 productos[
+                                                     seleccion]
+                                                 .precio + "\n";
+                                         }
+                                         alert(verProd());
+                                         carrito.push(productoEleccion);
+                                         let repetirIngresar = prompt(
+                                             "Desea otro servicio (Responde con un '' si ''/ '' no '' ): ")
+                                         if (repetirIngresar.toLowerCase() === "no") {
+                                             ingresar = false
+                                         }
+                                     }
+                                         function agregarAlCarrito() {
+                                            
+                                             listaCarrito = "Productos seleccionados:" + " \n"
+                                             for (let i = 0; i < carrito.length; i++) {
+                                                 listaCarrito += (i + 1) + " . " + carrito[i];
+                                             }
+                                             listaCarrito += "\n El precio total es de: " + total;
+                                             return listaCarrito;
+
+                                         }
+
+                                         alert(agregarAlCarrito());
+
+                                         break;
+                                         //volvero = true
+
+                                     case 4:
+                                         function verCarrito() {
+                                             listaCarrito = "Productos seleccionados:\n";
+                                             for (let i = 0; i < carrito.length; i++) {
+                                                 listaCarrito += (i + 1) + ". " + carrito[i];
+                                             }
+                                             listaCarrito += "\n El precio total es: " + total;
+                                             return listaCarrito;
+                                         }
+
+                                         alert(verCarrito());
+                                         break;
+
+                                     case 5:
+                                         alert("Muchas gracias \nVuelve pronto!!")
+                                         volvero = false;
+                                 }
+
+                             }
+
+                         }
+
+                         break;
+
+                     case 3:
+                         alert("Muchas gracias \nVuelve pronto!!")
+                         volver = false;
+
+                 }
+
+             }*/
+
+
+            let UsuarioNuevo = [];
+
+            let nombreUsuarioNuevo = " ";
+            let contrsañeUsuarionuevo = " ";
+
+            function registro() {
+
+                nombreUsuarioNuevo = prompt("Por favor ingrese su nombre completo: ")
+                contrsañeUsuarionuevo = prompt("Por favor ingrese su contraseña: ")
+                UsuarioNuevo.push({
+                    nombre: nombreUsuarioNuevo,
+                    contraseña: contrsañeUsuarionuevo
+                })
+                // return `${UsuarioNuevo[0].nombre} y contraseña: ${UsuarioNuevo[0].contraseña}` 
+                return "Nombre completo: " + nombreUsuarioNuevo + "\n\n" + "Contraseña: " + contrsañeUsuarionuevo
+
+            }
+            let buscarNombre = "";
+            let buscarContraseña = "";
+            let inicio = true
+
+            function iniciarSesion() {
+                buscarNombre = prompt("Ingrese el nombre completo: ");
+                buscarContraseña = prompt("Ingrese su contraseña: ");
+
+                for (let i = 0; i < UsuarioNuevo.length; i++) {
+                    if (buscarNombre === UsuarioNuevo[i].nombre && buscarContraseña === UsuarioNuevo[i].contraseña) {
+                        inicio = true;
+                        alert("Si esta registrado \nBienvenido!!");
+                        return;
+                    }
+                }
+                inicio = false;
+                alert("Usuario no encontrado");
+            }
+            let listaLibros = []
+            let volver = true
+            while (volver) {
+
+                const pregunta = Number(prompt(
+                    "Seleccione una opcion: \n 1. Registrar Usuario. \n 2. Iniciar sesion. \n 3. Salir"
+                ))
+                let librosDisponibles = [{
+                        titulo: "Cien años de soledad",
+                        autor: "Gabriel García Márquez"
+                    },
+                    {
+                        titulo: "1984",
+                        autor: "George Orwell"
+                    },
+                    {
+                        titulo: "Don Quijote de la Mancha",
+                        autor: "Miguel de Cervantes"
+                    },
+                    {
+                        titulo: "Orgullo y prejuicio",
+                        autor: "Jane Austen"
+                    },
+                    {
+                        titulo: "El Principito",
+                        autor: "Antoine de Saint-Exupéry"
+                    },
+                    {
+                        titulo: "El señor de los anillos",
+                        autor: "J.R.R. Tolkien"
+                    },
+                    {
+                        titulo: "Crimen y castigo",
+                        autor: "Fiódor Dostoyevski"
+                    },
+                    {
+                        titulo: "Rayuela",
+                        autor: "Julio Cortázar"
+                    },
+                    {
+                        titulo: "La sombra del viento",
+                        autor: "Carlos Ruiz Zafón"
+                    },
+                    {
+                        titulo: "Moby Dick",
+                        autor: "Herman Melville"
+                    }
+                ];
+
+            
+                let libros = [];
+                switch (pregunta) {
+                    case 1:
+                        alert(registro())
+                        break;
+
+                    case 2:
+                        iniciarSesion()
+                        if (inicio == true) {
+
+                            let regresar = true
+
+                            while (regresar) {
+                                const preguntaa = Number(prompt(
+                                    "Seleccione una opcion: \n Usuario: " + nombreUsuarioNuevo +
+                                    " \n 1. Ver Libros Disponibles\n 2. Prestar libro\n 3. Devolver libro\n 4. Ver libros prestados\n 5. Salir"
+                                ))
+                                switch (preguntaa) {
+                                    case 1:
+                                        function disponible() {
+                                            lidisponible = "Libros Disponibles:\n";
+                                            for (let i = 0; i < librosDisponibles.length; i++) {
+                                                lidisponible += (i + 1) + ". " + librosDisponibles[i].autor + " - " +
+                                                    librosDisponibles[i].titulo + "\n";
+                                            }
+                                            return lidisponible
+                                        }
+                                        alert(disponible());
+                                        break;
+                                    case 2:
+                                    let ingresar = true
+                                        while (ingresar) {
+                                            function verLibros() {
+                                                let muestraLibrosDisponibles =
+                                                    "Estimado cliente estos son los libros que puede adquirir\n";
+                                                for (let i = 0; i < librosDisponibles.length; i++) {
+                                                    muestraLibrosDisponibles += (i + 1) + " . " + librosDisponibles[i]
+                                                        .titulo +
+                                                        " - " +
+                                                        librosDisponibles[i].autor +
+                                                        "\n"
+                                                }
+                                                let seleccion = parseInt(prompt(muestraLibrosDisponibles));
+                                                seleccion = seleccion - 1
+                                    
+                                                return libroEleccion = librosDisponibles[seleccion].titulo + " - " +
+                                                    librosDisponibles[
+                                                        seleccion]
+                                                    .autor + "\n";
+                                            }
+                                            alert(verLibros());
+                                            libros.push(libroEleccion);
+                                            let repetirIngresar = prompt(
+                                                "Desea otro libro (Responde con un '' si ''/ '' no '' ): ")
+                                            if (repetirIngresar.toLowerCase() === "no") {
+                                                ingresar = false
+                                            }
+                                        }
+
+                                        function agregarAlibrosPrestados() {
+
+                                            listaLibros = "Libros seleccionados:" + " \n"
+                                            for (let i = 0; i < libros.length; i++) {
+                                                listaLibros += (i + 1) + " . " + libros[i];
+                                            }
+                                            
+                                            return listaLibros;
+
+                                        }
+
+                                        alert(agregarAlibrosPrestados());
+
+                                        break;
+                                        case 3:
+                                        alert("Mañana lo hago!!!")
+                                        break;
+                                        case 4:
+                                         function verPrestados() {
+                                             listaLibros = "Libros prestados:\n";
+                                             for (let i = 0; i < libros.length; i++) {
+                                                 listaLibros += (i + 1) + ". " + libros[i];
+                                             }
+                                  
+                                             return listaLibros;
+                                         }
+
+                                         alert(verPrestados());
+                                         break;
+
+                                     case 5:
+                                        regresar = false
+                                        break;
+                                }
+
+
+                            }
+
+                        }
+
+                        break;
+
+                    case 3:
+                        alert("Muchas gracias \nVuelve pronto!!")
+                        volver = false;
+                }
+
+            }
+        </script>
+
+    </body>
+
+    </html>

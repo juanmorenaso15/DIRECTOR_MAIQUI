@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <!-- Juan jose moreno benavides -->
+
+    <script>
+
+        let peliculas = [];
+
+function agregarPelicula() {
+  const nombre = prompt("Ingresa el nombre de la película:");
+  const duracion = parseInt(prompt("Ingresa la duración en minutos:"));
+  const genero = prompt("Ingresa el género:");
+
+  if (nombre && !isNaN(duracion) && genero) {
+    peliculas.push({ nombre, duracion, genero });
+    alert(`Película "${nombre}" agregada correctamente.`);
+  } else {
+    alert("Datos inválidos. Intenta de nuevo.");
+  }
+}
+
+function mostrarPeliculas() {
+  if (peliculas.length === 0) {
+    alert("No hay películas registradas.");
+    return;
+  }
+
+let mensaje = "Lista de películas:\n";
+  peliculas.forEach((peli, i) => {
+    mensaje += `${i + 1}. ${peli.nombre} - ${peli.duracion} min - Género: ${peli.genero}\n`;
+  });
+  alert(mensaje);
+}
+
+function filtrarPorGenero() {
+  const genero = prompt("Ingresa el género a filtrar:");
+  const filtradas = peliculas.filter(p => p.genero.toLowerCase() === genero.toLowerCase());
+
+  if (filtradas.length === 0) {
+    alert(`No hay películas del género "${genero}".`);
+  } else {
+    let mensaje = `Películas del género "${genero}":\n`;
+    filtradas.forEach(p => {
+      mensaje += `- ${p.nombre} (${p.duracion} min)\n`;
+    });
+    alert(mensaje);
+  }
+}
+
+function calcularDuracionTotal() {
+  const total = peliculas.reduce((sum, p) => sum + p.duracion, 0);
+  let mensaje = `Duración total: ${total} minutos.\n`;
+
+  if (total > 480) {
+    mensaje += "¡Es hora de una maratón!";
+  }
+
+  alert(mensaje);
+}
+
+function eliminarPelicula() {
+  const nombre = prompt("Ingresa el nombre de la película a eliminar:");
+  const index = peliculas.findIndex(p => p.nombre.toLowerCase() === nombre.toLowerCase());
+
+  if (index !== -1) {
+    const eliminada = peliculas.splice(index, 1)[0];
+    alert(`Película "${eliminada.nombre}" eliminada.`);
+  } else {
+    alert(`No se encontró la película "${nombre}".`);
+  }
+}
+
+function menu() {
+  let opcion;
+  do {
+    opcion = prompt(
+      "CineClub Virtual\n" +
+      "1. Agregar película\n" +
+      "2. Mostrar todas las películas\n" +
+      "3. Filtrar por género\n" +
+      "4. Calcular duración total\n" +
+      "5. Eliminar película\n" +
+      "6. Salir\n\n" +
+      "Elige una opción (1-6):"
+    );
+
+    switch (opcion) {
+      case "1":
+        agregarPelicula();
+        break;
+      case "2":
+        mostrarPeliculas();
+        break;
+      case "3":
+        filtrarPorGenero();
+        break;
+      case "4":
+        calcularDuracionTotal();
+        break;
+      case "5":
+        eliminarPelicula();
+        break;
+      case "6":
+        alert("¡Hasta luego!");
+        break;
+      default:
+        alert("Opción no válida. Intenta de nuevo.");
+    }
+  } while (opcion !== "6");
+}
+
+menu();
+
+
+
+
+
+    </script>
+
+      <!-- Juan jose moreno benavides -->
+
+    
+</body>
+</html>

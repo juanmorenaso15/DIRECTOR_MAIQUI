@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .registro {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        p{
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+
+    <!-- 
+    1. analizar problema: El empleadodebe de saber cual es el plato que el cliente desea ordenar de comida rapída y 
+    obtener la informacion de el como el nombre, numero de mesa y elije el tipo de comida(comida rapida, comida vegetariana, comida fria ),
+    despues de eligir el tipo de comida debe de elijir que plato desea ordenar, hora del pedido
+
+    2. planificar: debo de tener 5 decicisones con condicionales, ciclos o arryas.
+
+    4. paso paso: 
+    -- ingrese el nombre
+
+    3. codificar -->
+
+    <script>
+        let NumeroDeMesa = [" Mesa 1", " Mesa 2", " Mesa 3", " Mesa 4", " Mesa 5", " Mesa 6", " Mesa 7", " Mesa 8",
+            " Mesa 9", " Mesa 10"
+        ];
+        let TipoDeComida = ["Comida Rapida", "Comida Vegetarian", "Comida Fria"];
+        // let horaPedido = prompt("¿A qué hora deseas recibir el pedido? (Ej: 14:30)");
+        // console.log("El pedido llegará a las:", horaPedido);
+        let ComidaRapida = [
+            "Hamburguesa clásica",
+            "Pizza pepperoni",
+            "Hot dog",
+            "Alitas de pollo",
+            "Papas fritas",
+            "Sandwich de pollo",
+            "Tacos al pastor",
+            "Burrito de carne",
+            "Nachos con queso",
+            "Empanadas de carne"
+        ]
+        let ComidaVegetariana = [
+            "Ensalada César vegetariana",
+            "Falafel con hummus",
+            "Curry de garbanzos",
+            "Pasta primavera",
+            "Hamburguesa de lentejas",
+            "Ratatouille",
+            "Tacos de hongos",
+            "Quinoa con vegetales",
+            "Lasagna de berenjena",
+            "Buddha bowl"
+        ]
+
+        let ComidaFria = [
+            "Gazpacho",
+            "Ensalada griega",
+            "Ceviche",
+            "Sushi",
+            "Carpaccio de res",
+            "Ensalada de pasta fría",
+            "Sandwich club frío",
+            "Tiradito",
+            "Ensalada de atún",
+            "Tartar de salmón"
+        ]
+
+        let Bebida = [
+            // Bebidas no alcohólicas (frías)
+            "Refresco de cola",
+            "Jugo de naranja natural",
+            "Limonada fresca",
+            "Agua mineral",
+            "Té helado",
+
+            // Bebidas calientes
+            "Café americano",
+            "Té verde",
+            "Chocolate caliente",
+            "Capuchino",
+
+            // Bebidas alcohólicas
+            "Cerveza artesanal",
+            "Margarita",
+            "Vino tinto",
+            "Mojito"
+        ];
+
+        let NombreCliente = prompt("Ingrese su Nombre completo Señor(a) cliente: ")
+        let mensajeNumeroDeMesa = "¿Cual numero de mesa quiere que le asigne?\n"
+        for (let i = 0; i < NumeroDeMesa.length; i++) {
+            mensajeNumeroDeMesa += (i + 1) + ". " + NumeroDeMesa[i] + "\n";
+        }
+        let mensajeNumeroDeMesaSeleccion = parseInt(prompt(mensajeNumeroDeMesa))
+        let mesaSeleccion = NumeroDeMesa[mensajeNumeroDeMesaSeleccion - 1];
+
+        //---------------------------------------------------------------------------------------------------------------
+        let mensajeTipoDeComida = "Seleciona que tipo de comida deseas comer: " + mesaSeleccion + ":\n"
+        for (let j = 0; j < TipoDeComida.length; j++) {
+            mensajeTipoDeComida += (j + 1) + ". " + TipoDeComida[j] + "\n";
+        }
+        let tipoDeComidaSeleccion = parseInt(prompt(mensajeTipoDeComida));
+        let tipoComidatipo = TipoDeComida[tipoDeComidaSeleccion - 1];
+        let platerecomendado = " ";
+        if (tipoComidatipo == "Comida Rapida") {
+            let opcionPlatosRecomendados = ComidaRapida[tipoComidatipo];
+            let mensajePlatosRecomendados = "Selecciones el plato que desea ordenar: " + tipoComidatipo + ": \n";
+            for (let k = 0; k < ComidaRapida.length; k++) {
+                mensajePlatosRecomendados += (k + 1) + ". " + ComidaRapida[k] + "\n";
+            }
+            let seleccionPlatosRecomendados = parseInt(prompt(mensajePlatosRecomendados));
+            platerecomendado = ComidaRapida[seleccionPlatosRecomendados - 1];
+        } else if (tipoComidatipo == "Comida Vegetarian") {
+            let opcionPlatosRecomendados = ComidaVegetariana[tipoComidatipo];
+            let mensajePlatosRecomendados = "Selecciones el plato que desea ordenar: " + tipoComidatipo + ": \n";
+            for (let k = 0; k < ComidaVegetariana.length; k++) {
+                mensajePlatosRecomendados += (k + 1) + ". " + ComidaVegetariana[k] + "\n";
+            }
+            let seleccionPlatosRecomendados = parseInt(prompt(mensajePlatosRecomendados));
+            platerecomendado = ComidaVegetariana[seleccionPlatosRecomendados - 1];
+        } else if (tipoComidatipo == "Comida Fria") {
+            let opcionPlatosRecomendados = ComidaFria[tipoComidatipo];
+            let mensajePlatosRecomendados = "Selecciones el plato que desea ordenar: " + tipoComidatipo + ": \n";
+            for (let k = 0; k < ComidaFria.length; k++) {
+                mensajePlatosRecomendados += (k + 1) + ". " + ComidaFria[k] + "\n";
+            }
+            let seleccionPlatosRecomendados = parseInt(prompt(mensajePlatosRecomendados));
+            platerecomendado = ComidaFria[seleccionPlatosRecomendados - 1];
+        } else {
+
+            alert("Selccion invalida")
+
+        }
+
+        let mensajeBebida = "¿Que Bebida desea: ?\n";
+        for (i = 0; i < Bebida.length; i++) {
+            mensajeBebida += (i + 1) + ". " + Bebida[i] + "\n";
+        }
+        let mensajeBebidaSeleccion = parseInt(prompt(mensajeBebida))
+        let BebidaSeleccion = Bebida[mensajeBebidaSeleccion - 1]
+        document.write('<div class="registro">');
+        document.write("<h3>🗒️ Registro de tu pedido:" + "</h3><br>");
+        document.write("<p> Nombre completo: " + NombreCliente + "</p><br>");
+        document.write("<p>Numero de mesa asignada: " + mesaSeleccion + "</p><br>");
+        document.write("<p>Tipo de comida: " + tipoComidatipo + "</p><br>");
+        document.write("<p>Plato elejido: " + platerecomendado + "</p><br>");
+        document.write("<p>Bebida seleccionada: " + BebidaSeleccion + "</p><br>");
+        document.write('</div>');
+        document.write(registro)
+    </script>
+    <p></p>
+
+</body>
+
+</html>
