@@ -16,10 +16,11 @@ public class Adivinapalabra {
             }
         }
 
+       
+
         System.out.println("Adivinaste, la palabra es: " + palabraSecreta);
 
         scanner.close();
     }
-
 
 }
