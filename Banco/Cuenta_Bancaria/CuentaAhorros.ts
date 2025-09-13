@@ -1,4 +1,6 @@
-import { CuentaBancaria } from "./CuentaBancaria";
+import {
+    CuentaBancaria
+} from "./CuentaBancaria";
 
 export class CuentaAhorros extends CuentaBancaria {
     private _tasaInteres: number;
@@ -15,7 +17,7 @@ export class CuentaAhorros extends CuentaBancaria {
         }
 
         const maximoRetiro = this.getSaldo * 0.04;
-        
+
         if (cantidad > maximoRetiro) {
             console.log(`No puede retirar más del 50% de su saldo. Máximo permitido: ${maximoRetiro}`);
             return;
